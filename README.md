@@ -16,12 +16,19 @@ Windows 上的小工具：电脑通过 USB 或无线调试控制手机，自动�
 > ⚠️ 自动播放激励广告大概率违反外星仔加速器的用户协议，存在封号、追回时长的风险。
 > 本项目仅供个人在自己设备上学习研究，**不要用于代领、批量账号或任何营利场景**。
 
+## 下载（免安装）
+不想装 Python 的话，直接去 [Releases](https://github.com/kijids/waixingzai-auto-claim/releases/latest)
+下载 `外星仔领时长-v1.9.2-win64.zip`，解压后双击 `外星仔领时长.exe`。
+内置 adb，不用额外配置；首次运行可能被 SmartScreen 拦截，右键 → 属性 → 解除锁定。
+
+
 ## 快速开始
 
 1. 装 [Python 3.10+](https://www.python.org/downloads/)（安装时勾选 *Add python.exe to PATH*）
 2. 双击 **setup.bat** —— 下载 adb 和 OCR 运行库（两者都不进仓库）
 3. 手机：开发者选项 → 打开「USB 调试」，插线，选「传输文件(MTP)」，允许调试
 4. 双击 **run.bat** 启动
+
 
 也可以命令行跑：
 
