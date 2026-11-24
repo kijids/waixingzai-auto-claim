@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 本地下载的二进制与运行库（由 setup.bat 获取，不进仓库）
+src/adb.exe
+src/AdbWinApi.dll
+src/AdbWinUsbApi.dll
+vendor/
+tools/platform-tools/
+tools/*.zip
+
+# 运行时产物
+_shot.png
+_selftest.txt
+_error.txt
+demo_shot.png
+*.log
+
+# 构建产物
+build/
+dist/
+*.spec
+
+# 系统
+.DS_Store
+Thumbs.db

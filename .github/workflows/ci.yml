@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: 测试（Python ${{ matrix.python-version }}）
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 语法检查
+        run: python -m compileall -q src tools tests
+
+      - name: 单元测试（不连手机）
+        run: python -m unittest discover -s tests -v
+
+      - name: 下载 adb 与 OCR 运行库
+        run: python tools/setup.py
+        continue-on-error: true
+
+      - name: 冒烟测试（模块可导入）
+        run: |
+          python -c "import sys; sys.path.insert(0,'src'); import gui, ad_runner, ocr_reader; print('import ok'); print('ocr', ocr_reader.available())"
